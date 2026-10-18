@@ -21,4 +21,5 @@ from game_picker.views import MainView
 
 urlpatterns = [
     path('', MainView.as_view()),
+    path('user=<str:username>', MainView.as_view()),
 ]
