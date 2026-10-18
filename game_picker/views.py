@@ -30,14 +30,12 @@ class MainView(TemplateView):
             collection_dict = get_collection_dict("Ravenpsycho_collection.xml", ["name", "image"])
             self.collection = collection_dict
             self.name_and_pic = zip(self.collection["name"], self.collection["image"])
-            print(self.collection)
 
 def get_collection_dict(xml_file, params:list)-> dict:
     return_dict = {}
     tree = ET.parse(xml_file)
     root = tree.getroot()
     games = [x for x in root]
-    print(games)
     for p in params:
         return_dict[p] = [x.find(p).text for x in games]
     return return_dict
